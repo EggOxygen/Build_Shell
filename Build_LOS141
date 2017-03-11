@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#2017-0311
+#EggOxygen
+
+#Don`t Need Add Any Exrta
+
+#Build LOS141
+echo "Start Building LOS141"
+#Sync Lastest Source
+# proxychains repo sync
+#Clean
+rm -rf "/media/eggoxygen/Source_Main/LOS141/device/htc"
+rm -rf "/media/eggoxygen/Source_Main/LOS141/device/qcom/common"
+rm -rf "/media/eggoxygen/Source_Main/LOS141/kernel"
+rm -rf "/media/eggoxygen/Source_Main/LOS141/vendor/htc"
+rm -rf "/media/eggoxygen/Source_Main/CCACHE"
+#Copy New Device Files
+cp -r '/media/eggoxygen/Source/B3UHL_SOURCE/B3_Lineage/device' '/media/eggoxygen/Source/B3UHL_SOURCE/B3_Lineage/kernel' '/media/eggoxygen/Source/B3UHL_SOURCE/B3_Lineage/vendor' '/media/eggoxygen/Source_Main/LOS141'
+#Copy Exrta Change To Source
+#'/media/eggoxygen/Source_Main/EXRTA/EXRTA_LOS141.sh'
+#Make dir for cache
+mkdir -p  "/media/eggoxygen/Source_Main/CCACHE"
+#Breakfast Time
+cd "/media/eggoxygen/Source_Main/LOS141"
+.  build/envsetup.sh
+make clean
+export WITH_SU=true
+export USE_CCACHE=1
+export CCACHE_DIR=/media/eggoxygen/Source_Main/CCACHE/
+prebuilts/misc/linux-x86/ccache/ccache -M 50G
+breakfast b3uhl && croot && brunch b3uhl
+#When Build Done ** Restore
+#'/media/eggoxygen/Source_Main/EXRTA/RESTORE.sh' 
