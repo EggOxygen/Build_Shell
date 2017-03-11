@@ -11,12 +11,14 @@ echo "Start Building SM_M"
 #Sync Lastest Source
 # proxychains repo sync
 #Clean
+echo "Remove Old Files"
 rm -rf "/media/eggoxygen/Source_Main/SM_M/device/htc"
 rm -rf "/media/eggoxygen/Source_Main/SM_M/device/qcom/common"
 rm -rf "/media/eggoxygen/Source_Main/SM_M/kernel"
 rm -rf "/media/eggoxygen/Source_Main/SM_M/vendor/htc"
 #rm -rf "/media/eggoxygen/Source_Main/CCACHE"
 #Copy New Device Files
+echo "Copy New Files"
 cp -r '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_SM_M/device' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_SM_M/kernel' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_SM_M/vendor' '/media/eggoxygen/Source_Main/SM_M'
 ##Copy Exrta Change To Source
 ##'/media/eggoxygen/Source_Main/EXRTA/EXRTA_SM_M.sh'
