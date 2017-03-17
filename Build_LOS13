@@ -1,7 +1,9 @@
 #!/bin/bash
 
-#2017-0311
+#2017-0317
 #EggOxygen
+
+#Don`t Remove CCACHE Dir
 
 #Build LOS13
 echo "Start Building LOS13"
@@ -13,14 +15,14 @@ rm -rf "/media/eggoxygen/Source_Main/LOS13/device/htc"
 rm -rf "/media/eggoxygen/Source_Main/LOS13/device/qcom/common"
 rm -rf "/media/eggoxygen/Source_Main/LOS13/kernel"
 rm -rf "/media/eggoxygen/Source_Main/LOS13/vendor/htc"
-rm -rf "/media/eggoxygen/Source_Main/CCACHE"
+#rm -rf "/media/eggoxygen/Source_Main/CCACHE"
 #Copy New Device Files
 echo "Copy New Files"
 cp -r '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_CM13_CAF/device' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_CM13_CAF/kernel' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_CM13_CAF/vendor' '/media/eggoxygen/Source_Main/LOS13'
 #Copy Exrta Change To Source
 '/media/eggoxygen/Source_Main/EXRTA/EXRTA_LOS13.sh'
 #Make dir for cache
-mkdir -p  "/media/eggoxygen/Source_Main/CCACHE"
+#mkdir -p  "/media/eggoxygen/Source_Main/CCACHE"
 #Breakfast Time
 cd "/media/eggoxygen/Source_Main/LOS13"
 .  build/envsetup.sh
