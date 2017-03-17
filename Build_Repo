@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#2017-0317
+#EggOxygen
+
+echo "Repo LOS13"
+cd '/media/eggoxygen/Source_Main/LOS13'
+repo sync -j64
+echo "Repo SudaMod MM"
+cd '/media/eggoxygen/Source_Main/SM_M'
+repo sync -j64
+echo "Repo LOS141"
+cd '/media/eggoxygen/Source_Main/LOS141'
+repo sync -j64
+echo "Repo Slim"
+cd '/media/eggoxygen/Source_Main/SLIM'
+repo sync -j64
