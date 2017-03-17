@@ -3,12 +3,17 @@
 #2017-0317
 #EggOxygen
 
+#Fixed Project Not Found
+
 echo "Repo LOS13"
 cd '/media/eggoxygen/Source_Main/LOS13'
 repo sync -j64
 echo "Repo SudaMod MM"
 cd '/media/eggoxygen/Source_Main/SM_M'
+mv .repo/local_manifests/roomservice.xml .repo/local_manifests/roomservice.xml.bak
 repo sync -j64
+echo "Replace local_manifest to make sure Build Succ."
+mv .repo/local_manifests/roomservice.xml.bak .repo/local_manifests/roomservice.xml
 echo "Repo LOS141"
 cd '/media/eggoxygen/Source_Main/LOS141'
 repo sync -j64
