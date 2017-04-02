@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#2017-0311
+#2017-0402
 #EggOxygen
 
 #Don`t Need Add Any Exrta
@@ -14,17 +14,17 @@ rm -rf "/media/eggoxygen/Source_Main/LOS141/device/htc"
 rm -rf "/media/eggoxygen/Source_Main/LOS141/device/qcom/common"
 rm -rf "/media/eggoxygen/Source_Main/LOS141/kernel"
 rm -rf "/media/eggoxygen/Source_Main/LOS141/vendor/htc"
-rm -rf "/media/eggoxygen/Source_Main/CCACHE"
+#rm -rf "/media/eggoxygen/Source_Main/CCACHE"
 #Copy New Device Files
-cp -r '/media/eggoxygen/Source/B3UHL_SOURCE/B3_Lineage/device' '/media/eggoxygen/Source/B3UHL_SOURCE/B3_Lineage/kernel' '/media/eggoxygen/Source/B3UHL_SOURCE/B3_Lineage/vendor' '/media/eggoxygen/Source_Main/LOS141'
+cp -r '/media/eggoxygen/Source/B3UHL_SOURCE/B3_CM141/device' '/media/eggoxygen/Source/B3UHL_SOURCE/B3_CM141/kernel' '/media/eggoxygen/Source/B3UHL_SOURCE/B3_CM141/vendor' '/media/eggoxygen/Source_Main/LOS141'
 #Copy Exrta Change To Source
 #'/media/eggoxygen/Source_Main/EXRTA/EXRTA_LOS141.sh'
 #Make dir for cache
-mkdir -p  "/media/eggoxygen/Source_Main/CCACHE"
+#mkdir -p  "/media/eggoxygen/Source_Main/CCACHE"
 #Breakfast Time
 cd "/media/eggoxygen/Source_Main/LOS141"
 .  build/envsetup.sh
-make clean
+#make clean
 export WITH_SU=true
 export USE_CCACHE=1
 export CCACHE_DIR=/media/eggoxygen/Source_Main/CCACHE/

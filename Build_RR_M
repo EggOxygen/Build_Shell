@@ -1,26 +1,26 @@
 #!/bin/bash
 
-#2017-0310
+#2017-0402
 #EggOxygen
 
-#Build RR
-echo "Start Building RR"
+#Build RRN
+echo "Start Building RRN"
 #Sync Lastest Source
 # proxychains repo sync
 #Clean
-rm -rf "/media/eggoxygen/Source_Main/RR/device/htc"
-rm -rf "/media/eggoxygen/Source_Main/RR/device/qcom/common"
-rm -rf "/media/eggoxygen/Source_Main/RR/kernel"
-rm -rf "/media/eggoxygen/Source_Main/RR/vendor/htc"
-rm -rf "/media/eggoxygen/Source_Main/CCACHE"
+rm -rf "/media/eggoxygen/Source_Main/RRN/device/htc"
+rm -rf "/media/eggoxygen/Source_Main/RRN/device/qcom/common"
+rm -rf "/media/eggoxygen/Source_Main/RRN/kernel"
+rm -rf "/media/eggoxygen/Source_Main/RRN/vendor/htc"
+#rm -rf "/media/eggoxygen/Source_Main/CCACHE"
 #Copy New Device Files
-cp -r '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_CM13_CAF/device' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_CM13_CAF/kernel' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_CM13_CAF/vendor' '/media/eggoxygen/Source_Main/RR'
+cp -r '/media/eggoxygen/Source/B3UHL_SOURCE/B3_CM141/device' '/media/eggoxygen/Source/B3UHL_SOURCE/B3_CM141/kernel' '/media/eggoxygen/Source/B3UHL_SOURCE/B3_CM141/vendor' '/media/eggoxygen/Source_Main/RRN'
 #Copy Exrta Change To Source
-'/media/eggoxygen/Source_Main/EXRTA/EXRTA_RR.sh'
+#'/media/eggoxygen/Source_Main/EXRTA/EXRTA_RRN.sh'
 #Make dir for cache
 mkdir -p  "/media/eggoxygen/Source_Main/CCACHE"
 #Breakfast Time
-cd "/media/eggoxygen/Source_Main/RR"
+cd "/media/eggoxygen/Source_Main/RRN"
 .  build/envsetup.sh
 make clean
 #export WITH_SU=true
@@ -29,4 +29,4 @@ export CCACHE_DIR=/media/eggoxygen/Source_Main/CCACHE/
 prebuilts/misc/linux-x86/ccache/ccache -M 50G
 breakfast b3uhl && croot && brunch b3uhl
 #When Build Done ** Restore
-'/media/eggoxygen/Source_Main/EXRTA/RESTORE_RR.sh' 
+#'/media/eggoxygen/Source_Main/EXRTA/RESTORE_RRN.sh' 

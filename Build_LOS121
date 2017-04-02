@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#2017-0317
+#EggOxygen
+
+#Don`t Remove CCACHE Dir
+#Don`t MakeClean Because this just build for myself
+
+#Build CM121
+echo "Start Building CM121"
+#Sync Lastest Source
+# proxychains repo sync
+#Clean
+echo "Remove Old Files"
+rm -rf "/media/eggoxygen/Source_Main/CM121/device/htc"
+rm -rf "/media/eggoxygen/Source_Main/CM121/device/qcom/common"
+rm -rf "/media/eggoxygen/Source_Main/CM121/kernel"
+rm -rf "/media/eggoxygen/Source_Main/CM121/vendor/htc"
+rm -rf "/media/eggoxygen/Source_Main/CCACHE"
+#Copy New Device Files
+echo "Copy New Files"
+cp -r '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_CM121/device' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_CM121/kernel' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_CM121/vendor' '/media/eggoxygen/Source_Main/CM121'
+#Copy Exrta Change To Source
+#'/media/eggoxygen/Source_Main/EXRTA/EXRTA_CM121.sh'
+#Make dir for cache
+mkdir -p  "/media/eggoxygen/Source_Main/CCACHE"
+#Breakfast Time
+cd "/media/eggoxygen/Source_Main/CM121"
+.  build/envsetup.sh
+make clean
+#export WITH_SU=true
+export USE_CCACHE=1
+export CCACHE_DIR=/media/eggoxygen/Source_Main/CCACHE/
+prebuilts/misc/linux-x86/ccache/ccache -M 50G
+breakfast b3uhl && croot && brunch b3uhl
+#When Build Done ** Restore
+#'/media/eggoxygen/Source_Main/EXRTA/RESTORE.sh' 
