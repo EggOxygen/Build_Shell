@@ -5,18 +5,25 @@
 
 #Fixed Project Not Found
 
-echo "Repo LOS13"
-cd '/media/eggoxygen/Source_Main/LOS13'
-repo sync -j64
-echo "Repo SudaMod MM"
-cd '/media/eggoxygen/Source_Main/SM_M'
-mv .repo/local_manifests/roomservice.xml .repo/local_manifests/roomservice.xml.bak
-repo sync -j64
-echo "Replace local_manifest to make sure Build Succ."
-mv .repo/local_manifests/roomservice.xml.bak .repo/local_manifests/roomservice.xml
-echo "Repo LOS141"
-cd '/media/eggoxygen/Source_Main/LOS141'
-repo sync -j64
-echo "Repo Slim"
-cd '/media/eggoxygen/Source_Main/SLIM'
-repo sync -j64
+#####################
+#LineageOS
+echo "Repo LineageOS12.1"
+cd '/media/eggoxygen/Source_Main/LOS/LOS121'
+repo sync --force-sync --force-broken --no-clone-bundle --no-tags -j12
+
+echo "Repo LineageOS13"
+cd '/media/eggoxygen/Source_Main/LOS/LOS13'
+repo sync --force-sync --force-broken --no-clone-bundle --no-tags -j12
+
+echo "Repo LineageOS14.1"
+cd '/media/eggoxygen/Source_Main/LOS/LOS141'
+repo sync --force-sync --force-broken --no-clone-bundle --no-tags -j12
+#####################
+
+#####################
+#SudaMod
+echo "Repo Sudamod Nougat"
+cd '/media/eggoxygen/Source_Main/SM/SMN'
+repo sync --force-sync --force-broken --no-clone-bundle --no-tags -j12
+#####################
+

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#2017-0415
+#EggOxygen
+
+#Build LOS141
+echo "Start Building LOS141"
+
+#Clean Old Files
+echo "Remove Old Files"
+rm -rf "/media/eggoxygen/Source_Main/SM/SMN/device/htc"
+rm -rf "/media/eggoxygen/Source_Main/SM/SMN/device/qcom/common"
+rm -rf "/media/eggoxygen/Source_Main/SM/SMN/kernel"
+rm -rf "/media/eggoxygen/Source_Main/SM/SMN/vendor/htc"
+#rm -rf "/media/eggoxygen/Source_Main/CCACHE"
+
+#Copy New Device Files
+echo "Copy New Files"
+cp -r '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_SM/device' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_SM/kernel' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_SM/vendor' '/media/eggoxygen/Source_Main/SM/SMN'
+
+#Make dir for cache
+#mkdir -p  "/media/eggoxygen/Source_Main/CCACHE"
+
+#Breakfast Time
+cd "/media/eggoxygen/Source_Main/SM/SMN"
+.  build/envsetup.sh
+export WITH_SU=true
+export USE_CCACHE=1
+export CCACHE_DIR=/media/eggoxygen/Source_Main/CCACHE/
+prebuilts/misc/linux-x86/ccache/ccache -M 50G
+breakfast b3uhl && croot && brunch b3uhl

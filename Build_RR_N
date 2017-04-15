@@ -1,32 +1,31 @@
 #!/bin/bash
 
-#2017-0402
+#2017-0415
 #EggOxygen
 
 #Build RRN
 echo "Start Building RRN"
-#Sync Lastest Source
-# proxychains repo sync
-#Clean
+
+#Clean Old Files
+echo "Remove Old Files"
 rm -rf "/media/eggoxygen/Source_Main/RRN/device/htc"
 rm -rf "/media/eggoxygen/Source_Main/RRN/device/qcom/common"
 rm -rf "/media/eggoxygen/Source_Main/RRN/kernel"
 rm -rf "/media/eggoxygen/Source_Main/RRN/vendor/htc"
-#rm -rf "/media/eggoxygen/Source_Main/CCACHE"
+rm -rf "/media/eggoxygen/Source_Main/CCACHE"
+
 #Copy New Device Files
-cp -r '/media/eggoxygen/Source/B3UHL_SOURCE/B3_CM141/device' '/media/eggoxygen/Source/B3UHL_SOURCE/B3_CM141/kernel' '/media/eggoxygen/Source/B3UHL_SOURCE/B3_CM141/vendor' '/media/eggoxygen/Source_Main/RRN'
-#Copy Exrta Change To Source
-#'/media/eggoxygen/Source_Main/EXRTA/EXRTA_RRN.sh'
+echo "Copy New Files"
+cp -r '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_CM141/device' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_CM141/kernel' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_CM141/vendor' '/media/eggoxygen/Source_Main/RRN'
+
 #Make dir for cache
-mkdir -p  "/media/eggoxygen/Source_Main/CCACHE"
+#mkdir -p  "/media/eggoxygen/Source_Main/CCACHE"
+
 #Breakfast Time
 cd "/media/eggoxygen/Source_Main/RRN"
 .  build/envsetup.sh
-make clean
 #export WITH_SU=true
 export USE_CCACHE=1
 export CCACHE_DIR=/media/eggoxygen/Source_Main/CCACHE/
 prebuilts/misc/linux-x86/ccache/ccache -M 50G
 breakfast b3uhl && croot && brunch b3uhl
-#When Build Done ** Restore
-#'/media/eggoxygen/Source_Main/EXRTA/RESTORE_RRN.sh' 
