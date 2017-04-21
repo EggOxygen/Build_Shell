@@ -8,10 +8,10 @@ echo "Start Building LOS141"
 
 #Clean Old Files
 echo "Remove Old Files"
-rm -rf "/media/eggoxygen/Source_Main/SM/SMN/device/htc"
-rm -rf "/media/eggoxygen/Source_Main/SM/SMN/device/qcom/common"
-rm -rf "/media/eggoxygen/Source_Main/SM/SMN/kernel"
-rm -rf "/media/eggoxygen/Source_Main/SM/SMN/vendor/htc"
+rm -rf "/media/eggoxygen/Source_Main/SM/SMN/device/htc/b3-common"
+rm -rf "/media/eggoxygen/Source_Main/SM/SMN/device/htc/b3uhl"
+rm -rf "/media/eggoxygen/Source_Main/SM/SMN/kernel/msm8994"
+rm -rf "/media/eggoxygen/Source_Main/SM/SMN/vendor/htc/b3-common"
 #rm -rf "/media/eggoxygen/Source_Main/CCACHE"
 
 #Copy New Device Files
