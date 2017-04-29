@@ -1,0 +1,35 @@
+#!/bin/bash
+
+#2017-0429
+#EggOxygen
+
+#Build Shell For HTC Butterfly 3
+
+#Build COS
+echo "Start Building Cosmic Nougat"
+
+#Clean Old Files
+echo "Remove Old Files"
+rm -rf "/media/eggoxygen/Source_Main/COS/device/htc/b3-common"
+rm -rf "/media/eggoxygen/Source_Main/COS/device/htc/b3uhl"
+rm -rf "/media/eggoxygen/Source_Main/COS/kernel/msm8994"
+rm -rf "/media/eggoxygen/Source_Main/COS/vendor/htc/b3-common"
+#rm -rf "/media/eggoxygen/Source_Main/CCACHE"
+
+#Copy New Device Files
+echo "Copy New Files"
+cd '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_Nougat'
+git checkout COS_Nougat
+cp -r '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_Nougat/device' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_Nougat/kernel' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_Nougat/vendor' '/media/eggoxygen/Source_Main/COS'
+
+#Make dir for cache
+#mkdir -p  "/media/eggoxygen/Source_Main/CCACHE"
+
+#Breakfast Time
+cd "/media/eggoxygen/Source_Main/COS"
+.  build/envsetup.sh
+#export WITH_SU=true (INCLUDE_MAGISK)
+export USE_CCACHE=1
+export CCACHE_DIR=/media/eggoxygen/Source_Main/CCACHE/
+prebuilts/misc/linux-x86/ccache/ccache -M 50G
+lunch cos_b3uhl-userdebug && brunch b3uhl

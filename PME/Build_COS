@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#2017-0429
+#EggOxygen
+
+#Build Shell For HTC 10
+
+#Build COS
+echo "Start Building Cosmic Nougat"
+
+#Copy local_manifest To Source
+
+#Make dir for cache
+#mkdir -p  "/media/eggoxygen/Source_Main/CCACHE"
+
+#Breakfast Time
+cd "/media/eggoxygen/Source_Main/COS"
+.  build/envsetup.sh
+#export WITH_SU=true (INCLUDE_MAGISK)
+export USE_CCACHE=1
+export CCACHE_DIR=/media/eggoxygen/Source_Main/CCACHE/
+prebuilts/misc/linux-x86/ccache/ccache -M 50G
+lunch cos_pme-userdebug && brunch pme

@@ -2,19 +2,16 @@
 
 <manifest> 
 <!--HTC 10 Common Device Tree-->
-  <project path="vendor/nxp-nfc/opensource/frameworks" name="LineageOS/android_vendor_nxp-nfc_opensource_frameworks" />
-  <project path="vendor/nxp-nfc/opensource/libnfc-nci" name="LineageOS/android_vendor_nxp-nfc_opensource_libnfc-nci" />
-  <project path="vendor/nxp-nfc/opensource/Nfc" name="LineageOS/android_vendor_nxp-nfc_opensource_Nfc" />
   <project path="packages/apps/FlipFlap" name="LineageOS/android_packages_apps_FlipFlap" />
   <project path="packages/resources/devicesettings" name="LineageOS/android_packages_resources_devicesettings" />
 
 <!--QCOM COMMON-->
-  <project path="vendor/qcom/common" name="LineageOS/android_device_qcom_common" />
+  <project path="vendor/qcom/common" name="LineageOS/android_device_qcom_common" />  
 
 <!--Kernel Tree-->
   <project path="kernel/htc/msm8996" name="LineageOS/android_kernel_htc_msm8996" />
 <!--Device Tree-->
-  <project path="device/htc/pme" name="EggOxygen/android_device_htc_pme" revision="sm-3.1" />
+  <project path="device/htc/pme" name="EggOxygen/android_device_htc_pme" revision="COS_Nougat" />
 <!--Vendor Tree-->
   <project path="vendor/htc" name="EggOxygen/android_vendor_htc" revision="Nougat" />
 </manifest>
