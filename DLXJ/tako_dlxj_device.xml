@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest> 
+<!--Device Tree-->
+  <project path="device/htc/dlxj" name="kbc-developers/android_device_htc_dlxj
+" remote="github"  revision="cm-13.0" />
+  <project path="device/htc/msm8960-common" name="kbc-developers/android_device_htc_msm8960-common" remote="github"  revision="cm-13.0" />
+<!--Kernel Tree-->
+  <project path="kernel/htc/m7wlj" name="kbc-developers/android_kernel_htc_m7wlj" remote="github"  revision="cm-13.0" />
+</manifest>

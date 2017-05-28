@@ -10,7 +10,6 @@ echo "Start Building LOS13"
 #Clean Old Files
 echo "Remove Old Files"
 rm -rf "/media/eggoxygen/Source_Main/LOS/LOS13/device/htc"
-rm -rf "/media/eggoxygen/Source_Main/LOS/LOS13/device/qcom/common"
 rm -rf "/media/eggoxygen/Source_Main/LOS/LOS13/kernel"
 rm -rf "/media/eggoxygen/Source_Main/LOS/LOS13/vendor/htc"
 #rm -rf "/media/eggoxygen/Source_Main/CCACHE"
