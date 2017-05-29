@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#2017-0528
+#EggOxygen
+
+#Build Shell For DLXJ
+
+#Build LOS141
+echo "Start Building LOS13"
+
+#Copy local_manifest To Source
+
+#Make dir for cache
+#mkdir -p  "/media/eggoxygen/Source_Main/CCACHE"
+
+#Breakfast Time
+cd "/media/eggoxygen/Source_Main/LOS/LOS13"
+.  build/envsetup.sh
+export WITH_SU=true
+export USE_CCACHE=1
+export CCACHE_DIR=/media/eggoxygen/Source_Main/CCACHE/
+prebuilts/misc/linux-x86/ccache/ccache -M 50G
+breakfast dlxj && croot && brunch dlxj

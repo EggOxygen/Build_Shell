@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#2017-0415
+#EggOxygen
+
+
+#Build Mokee
+echo "Start Building Mokee"
+
+#Clean Old Files
+echo "Remove Old Files"
+rm -rf "/media/eggoxygen/Source_Main/MokeeN/device/htc"
+rm -rf "/media/eggoxygen/Source_Main/MokeeN/kernel"
+rm -rf "/media/eggoxygen/Source_Main/MokeeN/vendor/htc"
+#rm -rf "/media/eggoxygen/Source_Main/CCACHE"
+
+#Copy New Device Files
+echo "Copy New Files"
+cd '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_Nougat'
+git checkout MKN
+cp -r '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_Nougat/device' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_Nougat/kernel' '/media/eggoxygen/Source/B3UHL_SOURCE/B3UHL_Nougat/vendor' '/media/eggoxygen/Source_Main/MokeeN
+
+#Make dir for cache
+#mkdir -p  "/media/eggoxygen/Source_Main/CCACHE"
+
+#Breakfast Time
+cd "/media/eggoxygen/Source_Main/MokeeN"
+.  build/envsetup.sh
+export WITH_SU=true
+breakfast b3uhl
+export USE_CCACHE=1
+export CCACHE_DIR=/media/eggoxygen/Source_Main/CCACHE/
+prebuilts/misc/linux-x86/ccache/ccache -M 50G
+croot && brunch b3uhl
